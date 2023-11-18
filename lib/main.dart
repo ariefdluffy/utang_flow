@@ -1,8 +1,12 @@
-import 'package:hyper_ui/core.dart';
+import 'package:utang_flow/core.dart';
 import 'package:flutter/material.dart';
+import 'package:utang_flow/injection.dart';
+import 'package:utang_flow/service/db_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await DBService.init();
+  configureDependencies();
   runMainApp();
 }
 
@@ -16,16 +20,16 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Capek Ngoding',
+      title: 'Utang Flow',
       navigatorKey: Get.navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: getDefaultTheme(),
-      home: MainNavigationView(),
-      builder: (context, child) => DebugView(
-        context: context,
-        child: child,
-        visible: true,
-      ),
+      home: LoginView(),
+      // builder: (context, child) => DebugView(
+      //   context: context,
+      //   child: child,
+      //   visible: true,
+      // ),
     );
   }
 }

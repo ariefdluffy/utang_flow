@@ -1,4 +1,4 @@
-import 'package:hyper_ui/core.dart';
+import 'package:utang_flow/core.dart';
 import 'package:flutter/material.dart';
 
 snackbarPrimary({required String message, int duration = 4}) {
